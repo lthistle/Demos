@@ -11,6 +11,8 @@ cryptography = "*"
 beautifulsoup4 = "*"
 requests = "*"
 requests-html = "*"
+gunicorn = "*"
+flask = "*"
 
 [requires]
 python_version = "3.7"
