@@ -15,9 +15,8 @@ for article in paper.articles:
     res = es.index(index="articles", doc_type='news', body={'picture': article.top_image, 'title': article.title, 'text': article.text, 'link': article.url})
 es.indices.refresh(index="articles")
 
-
-def search():
-    res = es.search(index="articles", size=100, body={"query": {"multi_match": {"query": "Trump", "fields":['text', 'title']}}})
-    print("Got %d Hits:" % res['hits']['total'])
-    for hit in res['hits']['hits']:
-        print(hit['_source']['title'])
+#this is the repeatable thing for search
+res = es.search(index="articles", size=100, body={"query": {"multi_match": {"query": "Trump", "fields":['text', 'title']}}})
+print("Got %d Hits:" % res['hits']['total'])
+for hit in res['hits']['hits']:
+    print(hit['_source']['title'])
