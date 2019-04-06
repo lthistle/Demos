@@ -101,7 +101,7 @@ b2.mine()
 # b3 = Block(b2, [Vote("luke", "clinton")])
 # b3.mine()
 
-chain = Chain(b2)
+chain = Chain(b2) 
 chain.add_block([Vote("luke", "clinton")])
 print(chain)
 

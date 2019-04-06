@@ -1,7 +1,18 @@
+import subprocess
+import time
+import threading
 from elasticsearch import Elasticsearch
 import newspaper
 from flask import Flask
 app = Flask(__name__)
+
+def start_server(): subprocess.call(["elasticsearch-6.7.1/bin/elasticsearch"])
+    #Popen(subprocess.call(["elasticsearch-6.7.1/bin/elasticsearch"]))
+
+t = threading.Thread(target=start_server)
+t.start()
+
+time.sleep(15)
 
 es = Elasticsearch()
 
