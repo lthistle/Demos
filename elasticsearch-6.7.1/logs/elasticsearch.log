@@ -677,3 +677,109 @@ Caused by: java.lang.IllegalStateException: failed to obtain node locks, tried [
 [2019-04-06T19:49:25,726][INFO ][o.e.c.r.a.AllocationService] [kafw-27] Cluster health status changed from [RED] to [YELLOW] (reason: [shards started [[test-index][2], [test-index][0]] ...]).
 [2019-04-06T19:49:29,128][INFO ][o.e.c.m.MetaDataMappingService] [kafw-27] [articles/pKHlHWuoSyC1KJLSpN3ZZw] update_mapping [news]
 [2019-04-06T20:46:32,577][INFO ][o.e.c.m.MetaDataMappingService] [kafw-27] [articles/pKHlHWuoSyC1KJLSpN3ZZw] update_mapping [news]
+[2019-04-06T21:40:32,665][INFO ][o.e.e.NodeEnvironment    ] [kafw-27] using [1] data paths, mounts [[/ (/dev/disk1s1)]], net usable_space [6.2gb], net total_space [233.4gb], types [apfs]
+[2019-04-06T21:40:32,668][INFO ][o.e.e.NodeEnvironment    ] [kafw-27] heap size [990.7mb], compressed ordinary object pointers [true]
+[2019-04-06T21:40:33,134][INFO ][o.e.n.Node               ] [kafw-27] node name derived from node ID [kafw-27GSG27VIa_Vg8xIg]; set [node.name] to override
+[2019-04-06T21:40:33,135][INFO ][o.e.n.Node               ] [kafw-27] version[6.7.1], pid[98126], build[default/tar/2f32220/2019-04-02T15:59:27.961366Z], OS[Mac OS X/10.14.3/x86_64], JVM[Oracle Corporation/Java HotSpot(TM) 64-Bit Server VM/1.8.0_144/25.144-b01]
+[2019-04-06T21:40:33,135][INFO ][o.e.n.Node               ] [kafw-27] JVM arguments [-Xms1g, -Xmx1g, -XX:+UseConcMarkSweepGC, -XX:CMSInitiatingOccupancyFraction=75, -XX:+UseCMSInitiatingOccupancyOnly, -Des.networkaddress.cache.ttl=60, -Des.networkaddress.cache.negative.ttl=10, -XX:+AlwaysPreTouch, -Xss1m, -Djava.awt.headless=true, -Dfile.encoding=UTF-8, -Djna.nosys=true, -XX:-OmitStackTraceInFastThrow, -Dio.netty.noUnsafe=true, -Dio.netty.noKeySetOptimization=true, -Dio.netty.recycler.maxCapacityPerThread=0, -Dlog4j.shutdownHookEnabled=false, -Dlog4j2.disable.jmx=true, -Djava.io.tmpdir=/var/folders/nt/tx3r0qmn4yn_5w9s788mrt500000gn/T/elasticsearch-8492671094061182056, -XX:+HeapDumpOnOutOfMemoryError, -XX:HeapDumpPath=data, -XX:ErrorFile=logs/hs_err_pid%p.log, -XX:+PrintGCDetails, -XX:+PrintGCDateStamps, -XX:+PrintTenuringDistribution, -XX:+PrintGCApplicationStoppedTime, -Xloggc:logs/gc.log, -XX:+UseGCLogFileRotation, -XX:NumberOfGCLogFiles=32, -XX:GCLogFileSize=64m, -Des.path.home=/Users/umuthakana/Documents/GitHub/Demos/elasticsearch-6.7.1, -Des.path.conf=/Users/umuthakana/Documents/GitHub/Demos/elasticsearch-6.7.1/config, -Des.distribution.flavor=default, -Des.distribution.type=tar]
+[2019-04-06T21:40:36,895][INFO ][o.e.p.PluginsService     ] [kafw-27] loaded module [aggs-matrix-stats]
+[2019-04-06T21:40:36,895][INFO ][o.e.p.PluginsService     ] [kafw-27] loaded module [analysis-common]
+[2019-04-06T21:40:36,895][INFO ][o.e.p.PluginsService     ] [kafw-27] loaded module [ingest-common]
+[2019-04-06T21:40:36,895][INFO ][o.e.p.PluginsService     ] [kafw-27] loaded module [ingest-geoip]
+[2019-04-06T21:40:36,895][INFO ][o.e.p.PluginsService     ] [kafw-27] loaded module [ingest-user-agent]
+[2019-04-06T21:40:36,895][INFO ][o.e.p.PluginsService     ] [kafw-27] loaded module [lang-expression]
+[2019-04-06T21:40:36,896][INFO ][o.e.p.PluginsService     ] [kafw-27] loaded module [lang-mustache]
+[2019-04-06T21:40:36,896][INFO ][o.e.p.PluginsService     ] [kafw-27] loaded module [lang-painless]
+[2019-04-06T21:40:36,896][INFO ][o.e.p.PluginsService     ] [kafw-27] loaded module [mapper-extras]
+[2019-04-06T21:40:36,897][INFO ][o.e.p.PluginsService     ] [kafw-27] loaded module [parent-join]
+[2019-04-06T21:40:36,897][INFO ][o.e.p.PluginsService     ] [kafw-27] loaded module [percolator]
+[2019-04-06T21:40:36,897][INFO ][o.e.p.PluginsService     ] [kafw-27] loaded module [rank-eval]
+[2019-04-06T21:40:36,897][INFO ][o.e.p.PluginsService     ] [kafw-27] loaded module [reindex]
+[2019-04-06T21:40:36,897][INFO ][o.e.p.PluginsService     ] [kafw-27] loaded module [repository-url]
+[2019-04-06T21:40:36,897][INFO ][o.e.p.PluginsService     ] [kafw-27] loaded module [transport-netty4]
+[2019-04-06T21:40:36,898][INFO ][o.e.p.PluginsService     ] [kafw-27] loaded module [tribe]
+[2019-04-06T21:40:36,898][INFO ][o.e.p.PluginsService     ] [kafw-27] loaded module [x-pack-ccr]
+[2019-04-06T21:40:36,898][INFO ][o.e.p.PluginsService     ] [kafw-27] loaded module [x-pack-core]
+[2019-04-06T21:40:36,898][INFO ][o.e.p.PluginsService     ] [kafw-27] loaded module [x-pack-deprecation]
+[2019-04-06T21:40:36,898][INFO ][o.e.p.PluginsService     ] [kafw-27] loaded module [x-pack-graph]
+[2019-04-06T21:40:36,898][INFO ][o.e.p.PluginsService     ] [kafw-27] loaded module [x-pack-ilm]
+[2019-04-06T21:40:36,898][INFO ][o.e.p.PluginsService     ] [kafw-27] loaded module [x-pack-logstash]
+[2019-04-06T21:40:36,899][INFO ][o.e.p.PluginsService     ] [kafw-27] loaded module [x-pack-ml]
+[2019-04-06T21:40:36,899][INFO ][o.e.p.PluginsService     ] [kafw-27] loaded module [x-pack-monitoring]
+[2019-04-06T21:40:36,899][INFO ][o.e.p.PluginsService     ] [kafw-27] loaded module [x-pack-rollup]
+[2019-04-06T21:40:36,899][INFO ][o.e.p.PluginsService     ] [kafw-27] loaded module [x-pack-security]
+[2019-04-06T21:40:36,899][INFO ][o.e.p.PluginsService     ] [kafw-27] loaded module [x-pack-sql]
+[2019-04-06T21:40:36,899][INFO ][o.e.p.PluginsService     ] [kafw-27] loaded module [x-pack-upgrade]
+[2019-04-06T21:40:36,899][INFO ][o.e.p.PluginsService     ] [kafw-27] loaded module [x-pack-watcher]
+[2019-04-06T21:40:36,900][INFO ][o.e.p.PluginsService     ] [kafw-27] no plugins loaded
+[2019-04-06T21:40:41,787][INFO ][o.e.x.s.a.s.FileRolesStore] [kafw-27] parsed [0] roles from file [/Users/umuthakana/Documents/GitHub/Demos/elasticsearch-6.7.1/config/roles.yml]
+[2019-04-06T21:40:42,701][INFO ][o.e.x.m.p.l.CppLogMessageHandler] [kafw-27] [controller/98155] [Main.cc@109] controller (64 bit): Version 6.7.1 (Build e1f492de67a719) Copyright (c) 2019 Elasticsearch BV
+[2019-04-06T21:40:43,691][DEBUG][o.e.a.ActionModule       ] [kafw-27] Using REST wrapper from plugin org.elasticsearch.xpack.security.Security
+[2019-04-06T21:40:44,393][INFO ][o.e.d.DiscoveryModule    ] [kafw-27] using discovery type [zen] and host providers [settings]
+[2019-04-06T21:40:45,493][INFO ][o.e.n.Node               ] [kafw-27] initialized
+[2019-04-06T21:40:45,493][INFO ][o.e.n.Node               ] [kafw-27] starting ...
+[2019-04-06T21:40:45,699][INFO ][o.e.t.TransportService   ] [kafw-27] publish_address {127.0.0.1:9300}, bound_addresses {[::1]:9300}, {127.0.0.1:9300}
+[2019-04-06T21:40:48,861][INFO ][o.e.c.s.MasterService    ] [kafw-27] zen-disco-elected-as-master ([0] nodes joined), reason: new_master {kafw-27}{kafw-27GSG27VIa_Vg8xIg}{6IkpTZ0xQO6ttp398hxMAQ}{127.0.0.1}{127.0.0.1:9300}{ml.machine_memory=17179869184, xpack.installed=true, ml.max_open_jobs=20, ml.enabled=true}
+[2019-04-06T21:40:48,867][INFO ][o.e.c.s.ClusterApplierService] [kafw-27] new_master {kafw-27}{kafw-27GSG27VIa_Vg8xIg}{6IkpTZ0xQO6ttp398hxMAQ}{127.0.0.1}{127.0.0.1:9300}{ml.machine_memory=17179869184, xpack.installed=true, ml.max_open_jobs=20, ml.enabled=true}, reason: apply cluster state (from master [master {kafw-27}{kafw-27GSG27VIa_Vg8xIg}{6IkpTZ0xQO6ttp398hxMAQ}{127.0.0.1}{127.0.0.1:9300}{ml.machine_memory=17179869184, xpack.installed=true, ml.max_open_jobs=20, ml.enabled=true} committed version [1] source [zen-disco-elected-as-master ([0] nodes joined)]])
+[2019-04-06T21:40:48,925][INFO ][o.e.h.n.Netty4HttpServerTransport] [kafw-27] publish_address {127.0.0.1:9200}, bound_addresses {[::1]:9200}, {127.0.0.1:9200}
+[2019-04-06T21:40:48,926][INFO ][o.e.n.Node               ] [kafw-27] started
+[2019-04-06T21:40:49,624][WARN ][o.e.x.s.a.s.m.NativeRoleMappingStore] [kafw-27] Failed to clear cache for realms [[]]
+[2019-04-06T21:40:49,671][INFO ][o.e.l.LicenseService     ] [kafw-27] license [bea5e34d-60de-41d0-b464-bad0249f534b] mode [basic] - valid
+[2019-04-06T21:40:49,682][INFO ][o.e.g.GatewayService     ] [kafw-27] recovered [27] indices into cluster_state
+[2019-04-06T21:40:53,535][INFO ][o.e.c.r.a.AllocationService] [kafw-27] Cluster health status changed from [RED] to [YELLOW] (reason: [shards started [[test-index][3]] ...]).
+[2019-04-06T22:08:58,938][INFO ][o.e.x.m.p.NativeController] [kafw-27] Native controller process has stopped - no new native processes can be started
+[2019-04-06T22:08:58,940][INFO ][o.e.n.Node               ] [kafw-27] stopping ...
+[2019-04-06T22:08:58,951][INFO ][o.e.x.w.WatcherService   ] [kafw-27] stopping watch service, reason [shutdown initiated]
+[2019-04-06T22:08:59,714][INFO ][o.e.n.Node               ] [kafw-27] stopped
+[2019-04-06T22:08:59,714][INFO ][o.e.n.Node               ] [kafw-27] closing ...
+[2019-04-06T22:08:59,727][INFO ][o.e.n.Node               ] [kafw-27] closed
+[2019-04-06T22:09:20,331][INFO ][o.e.e.NodeEnvironment    ] [kafw-27] using [1] data paths, mounts [[/ (/dev/disk1s1)]], net usable_space [6.5gb], net total_space [233.4gb], types [apfs]
+[2019-04-06T22:09:20,335][INFO ][o.e.e.NodeEnvironment    ] [kafw-27] heap size [990.7mb], compressed ordinary object pointers [true]
+[2019-04-06T22:09:21,046][INFO ][o.e.n.Node               ] [kafw-27] node name derived from node ID [kafw-27GSG27VIa_Vg8xIg]; set [node.name] to override
+[2019-04-06T22:09:21,047][INFO ][o.e.n.Node               ] [kafw-27] version[6.7.1], pid[98531], build[default/tar/2f32220/2019-04-02T15:59:27.961366Z], OS[Mac OS X/10.14.3/x86_64], JVM[Oracle Corporation/Java HotSpot(TM) 64-Bit Server VM/1.8.0_144/25.144-b01]
+[2019-04-06T22:09:21,047][INFO ][o.e.n.Node               ] [kafw-27] JVM arguments [-Xms1g, -Xmx1g, -XX:+UseConcMarkSweepGC, -XX:CMSInitiatingOccupancyFraction=75, -XX:+UseCMSInitiatingOccupancyOnly, -Des.networkaddress.cache.ttl=60, -Des.networkaddress.cache.negative.ttl=10, -XX:+AlwaysPreTouch, -Xss1m, -Djava.awt.headless=true, -Dfile.encoding=UTF-8, -Djna.nosys=true, -XX:-OmitStackTraceInFastThrow, -Dio.netty.noUnsafe=true, -Dio.netty.noKeySetOptimization=true, -Dio.netty.recycler.maxCapacityPerThread=0, -Dlog4j.shutdownHookEnabled=false, -Dlog4j2.disable.jmx=true, -Djava.io.tmpdir=/var/folders/nt/tx3r0qmn4yn_5w9s788mrt500000gn/T/elasticsearch-4715420623031891973, -XX:+HeapDumpOnOutOfMemoryError, -XX:HeapDumpPath=data, -XX:ErrorFile=logs/hs_err_pid%p.log, -XX:+PrintGCDetails, -XX:+PrintGCDateStamps, -XX:+PrintTenuringDistribution, -XX:+PrintGCApplicationStoppedTime, -Xloggc:logs/gc.log, -XX:+UseGCLogFileRotation, -XX:NumberOfGCLogFiles=32, -XX:GCLogFileSize=64m, -Des.path.home=/Users/umuthakana/Documents/GitHub/Demos/elasticsearch-6.7.1, -Des.path.conf=/Users/umuthakana/Documents/GitHub/Demos/elasticsearch-6.7.1/config, -Des.distribution.flavor=default, -Des.distribution.type=tar]
+[2019-04-06T22:09:23,417][INFO ][o.e.p.PluginsService     ] [kafw-27] loaded module [aggs-matrix-stats]
+[2019-04-06T22:09:23,418][INFO ][o.e.p.PluginsService     ] [kafw-27] loaded module [analysis-common]
+[2019-04-06T22:09:23,418][INFO ][o.e.p.PluginsService     ] [kafw-27] loaded module [ingest-common]
+[2019-04-06T22:09:23,418][INFO ][o.e.p.PluginsService     ] [kafw-27] loaded module [ingest-geoip]
+[2019-04-06T22:09:23,418][INFO ][o.e.p.PluginsService     ] [kafw-27] loaded module [ingest-user-agent]
+[2019-04-06T22:09:23,418][INFO ][o.e.p.PluginsService     ] [kafw-27] loaded module [lang-expression]
+[2019-04-06T22:09:23,419][INFO ][o.e.p.PluginsService     ] [kafw-27] loaded module [lang-mustache]
+[2019-04-06T22:09:23,419][INFO ][o.e.p.PluginsService     ] [kafw-27] loaded module [lang-painless]
+[2019-04-06T22:09:23,419][INFO ][o.e.p.PluginsService     ] [kafw-27] loaded module [mapper-extras]
+[2019-04-06T22:09:23,419][INFO ][o.e.p.PluginsService     ] [kafw-27] loaded module [parent-join]
+[2019-04-06T22:09:23,419][INFO ][o.e.p.PluginsService     ] [kafw-27] loaded module [percolator]
+[2019-04-06T22:09:23,419][INFO ][o.e.p.PluginsService     ] [kafw-27] loaded module [rank-eval]
+[2019-04-06T22:09:23,420][INFO ][o.e.p.PluginsService     ] [kafw-27] loaded module [reindex]
+[2019-04-06T22:09:23,420][INFO ][o.e.p.PluginsService     ] [kafw-27] loaded module [repository-url]
+[2019-04-06T22:09:23,421][INFO ][o.e.p.PluginsService     ] [kafw-27] loaded module [transport-netty4]
+[2019-04-06T22:09:23,421][INFO ][o.e.p.PluginsService     ] [kafw-27] loaded module [tribe]
+[2019-04-06T22:09:23,422][INFO ][o.e.p.PluginsService     ] [kafw-27] loaded module [x-pack-ccr]
+[2019-04-06T22:09:23,422][INFO ][o.e.p.PluginsService     ] [kafw-27] loaded module [x-pack-core]
+[2019-04-06T22:09:23,422][INFO ][o.e.p.PluginsService     ] [kafw-27] loaded module [x-pack-deprecation]
+[2019-04-06T22:09:23,423][INFO ][o.e.p.PluginsService     ] [kafw-27] loaded module [x-pack-graph]
+[2019-04-06T22:09:23,423][INFO ][o.e.p.PluginsService     ] [kafw-27] loaded module [x-pack-ilm]
+[2019-04-06T22:09:23,423][INFO ][o.e.p.PluginsService     ] [kafw-27] loaded module [x-pack-logstash]
+[2019-04-06T22:09:23,423][INFO ][o.e.p.PluginsService     ] [kafw-27] loaded module [x-pack-ml]
+[2019-04-06T22:09:23,423][INFO ][o.e.p.PluginsService     ] [kafw-27] loaded module [x-pack-monitoring]
+[2019-04-06T22:09:23,423][INFO ][o.e.p.PluginsService     ] [kafw-27] loaded module [x-pack-rollup]
+[2019-04-06T22:09:23,424][INFO ][o.e.p.PluginsService     ] [kafw-27] loaded module [x-pack-security]
+[2019-04-06T22:09:23,424][INFO ][o.e.p.PluginsService     ] [kafw-27] loaded module [x-pack-sql]
+[2019-04-06T22:09:23,424][INFO ][o.e.p.PluginsService     ] [kafw-27] loaded module [x-pack-upgrade]
+[2019-04-06T22:09:23,424][INFO ][o.e.p.PluginsService     ] [kafw-27] loaded module [x-pack-watcher]
+[2019-04-06T22:09:23,425][INFO ][o.e.p.PluginsService     ] [kafw-27] no plugins loaded
+[2019-04-06T22:09:27,388][INFO ][o.e.x.s.a.s.FileRolesStore] [kafw-27] parsed [0] roles from file [/Users/umuthakana/Documents/GitHub/Demos/elasticsearch-6.7.1/config/roles.yml]
+[2019-04-06T22:09:28,052][INFO ][o.e.x.m.p.l.CppLogMessageHandler] [kafw-27] [controller/98549] [Main.cc@109] controller (64 bit): Version 6.7.1 (Build e1f492de67a719) Copyright (c) 2019 Elasticsearch BV
+[2019-04-06T22:09:28,618][DEBUG][o.e.a.ActionModule       ] [kafw-27] Using REST wrapper from plugin org.elasticsearch.xpack.security.Security
+[2019-04-06T22:09:29,085][INFO ][o.e.d.DiscoveryModule    ] [kafw-27] using discovery type [zen] and host providers [settings]
+[2019-04-06T22:09:29,925][INFO ][o.e.n.Node               ] [kafw-27] initialized
+[2019-04-06T22:09:29,925][INFO ][o.e.n.Node               ] [kafw-27] starting ...
+[2019-04-06T22:09:30,062][INFO ][o.e.t.TransportService   ] [kafw-27] publish_address {127.0.0.1:9300}, bound_addresses {[::1]:9300}, {127.0.0.1:9300}
+[2019-04-06T22:09:33,217][INFO ][o.e.c.s.MasterService    ] [kafw-27] zen-disco-elected-as-master ([0] nodes joined), reason: new_master {kafw-27}{kafw-27GSG27VIa_Vg8xIg}{CO2Y0YJSQTKGRGAYa0dyMw}{127.0.0.1}{127.0.0.1:9300}{ml.machine_memory=17179869184, xpack.installed=true, ml.max_open_jobs=20, ml.enabled=true}
+[2019-04-06T22:09:33,222][INFO ][o.e.c.s.ClusterApplierService] [kafw-27] new_master {kafw-27}{kafw-27GSG27VIa_Vg8xIg}{CO2Y0YJSQTKGRGAYa0dyMw}{127.0.0.1}{127.0.0.1:9300}{ml.machine_memory=17179869184, xpack.installed=true, ml.max_open_jobs=20, ml.enabled=true}, reason: apply cluster state (from master [master {kafw-27}{kafw-27GSG27VIa_Vg8xIg}{CO2Y0YJSQTKGRGAYa0dyMw}{127.0.0.1}{127.0.0.1:9300}{ml.machine_memory=17179869184, xpack.installed=true, ml.max_open_jobs=20, ml.enabled=true} committed version [1] source [zen-disco-elected-as-master ([0] nodes joined)]])
+[2019-04-06T22:09:33,305][INFO ][o.e.h.n.Netty4HttpServerTransport] [kafw-27] publish_address {127.0.0.1:9200}, bound_addresses {[::1]:9200}, {127.0.0.1:9200}
+[2019-04-06T22:09:33,305][INFO ][o.e.n.Node               ] [kafw-27] started
+[2019-04-06T22:09:34,105][WARN ][o.e.x.s.a.s.m.NativeRoleMappingStore] [kafw-27] Failed to clear cache for realms [[]]
+[2019-04-06T22:09:34,170][INFO ][o.e.l.LicenseService     ] [kafw-27] license [bea5e34d-60de-41d0-b464-bad0249f534b] mode [basic] - valid
+[2019-04-06T22:09:34,180][INFO ][o.e.g.GatewayService     ] [kafw-27] recovered [27] indices into cluster_state
+[2019-04-06T22:09:44,823][INFO ][o.e.c.r.a.AllocationService] [kafw-27] Cluster health status changed from [RED] to [YELLOW] (reason: [shards started [[test-index][0]] ...]).

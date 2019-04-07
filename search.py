@@ -22,8 +22,8 @@ if __name__ == '__main__':
 
     newsapi = NewsApiClient(api_key='ab1223db856247deaabeb8a682ad6a1a')
 
-    top_headlines = newsapi.get_top_headlines(q='trump', sources='bbc-news,the-verge,abc-news,bloomberg,google-news', language='en')
-    for article in top_headlines['articles']:
+    all_articles = newsapi.get_everything(q='', sources='bbc-news,the-verge,abc-news,associated-press,bloomberg,google-news,cnn,the-new-york-times,the-hill,washington-post,npr,pbs', language='en', sort_by='publishedAt', page_size=100)
+    for article in all_articles['articles']:
         res = es.index(index="articles", doc_type='news', body={'picture': article['urlToImage'], 'link': article['url'], 'title': article['title'], 'text': article['content']})
     es.indices.refresh(index="articles")
     app.run(debug=True, port=5001)
