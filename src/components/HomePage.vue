@@ -2,6 +2,7 @@
 <template>
 <div>
   <TheNavBar />
+  <div id='opacity-div'>
   <div id="logobox-div">
     <img src="@/logo.svg" alt='logo' width=600px>
     <br>
@@ -11,6 +12,7 @@
     <b-button @click="gotopage('#/news')" variant='outline-dark' id='button-news'>Get News</b-button>
     <b-button @click="gotopage('#/vote')" variant='outline-dark' id='button-vote'>Vote</b-button>
   </div>
+</div>
 </div>
 
 </template>
@@ -37,6 +39,8 @@ export default {
   padding-top: 50px;
   margin: 0 auto;
   text-align: center;
+  background-image: linear-gradient(rgba(200, 200, 200, 0.8), rgba(255, 255, 255, 0.5)), url("http://pollingplacephotoproject.org/wp-content/uploads/2017/11/o-VOTING-facebook.jpg");
+  height: 100vh;
 }
 #quote {
   padding-top: 30px;

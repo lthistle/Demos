@@ -2,16 +2,19 @@
 <div>
   <TheNavBar />
   <div class="form-inline" id="searchdiv">
-    <input class="form-control" type="text" v-model="searchcontent" placeholder="Trump" aria-label="Search" id='search-bar' >
+    <input class="form-control" type="text" v-model="searchcontent" placeholder="Brexit" aria-label="Search" id='search-bar' >
     <b-button @click="getStuff()" variant='outline-dark' id='search-button'>Search</b-button>
   </div>
+
   <div id='my-article' v-for="person in getList">
-      <img :src="person.image" width=20% id="my_pic" />
+
+      <img :src="person.image" :href="person.url" width=20% id="my_pic" />
       <div>
-        <h2><b>{{person.title}}</b></h2>
+        <a :href="person.url"><h2><b>{{person.title}}</b></h2></a>
         <p>{{person.author}}</p>
       </div>
   </div>
+
   <canvas id="barChart"</canvas>
 </div>
 </template>
@@ -108,5 +111,9 @@ h2 {
 }
 p {
   padding-left: 12px;
+}
+a {
+  color: black;
+  text-decoration: none;
 }
 </style>

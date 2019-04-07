@@ -1,7 +1,11 @@
 <template>
 <div>
   <TheNavBar />
+  <div id='keydiv'>
+  <input class="form-control" type="text" placeholder="VGhpcyBpcyBhIHNhbXBsZSBrZXkgaWYgeW91IGRpZG4ndCBrbm93" aria-label="Search" id='search-bar' >
+  </div>
   <div id='bigboi'>
+
   <div id="votebox" v-for="person in people" class="border border-primary rounded">
     <h3>{{person[0]}}</h3>
     <img id='votepic' :src="person[1]"/>
@@ -63,5 +67,12 @@ export default {
 }
 h3 {
   padding-top: 10px;
+}
+#keydiv {
+  display: flex;
+  margin: 0 auto;
+  margin-top: 10px;
+  justify-content: center;
+  width: 500px
 }
 </style>

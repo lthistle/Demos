@@ -4,7 +4,6 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import BootstrapVue from 'bootstrap-vue'
-var cors = require('cors');
 Vue.use(BootstrapVue)
 //App.use(cors())
 Vue.config.productionTip = false
