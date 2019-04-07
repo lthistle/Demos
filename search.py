@@ -6,6 +6,8 @@ import newspaper
 from flask import request, Flask
 import json
 from newsapi import NewsApiClient
+import time
+import datetime
 app = Flask(__name__)
 
 #this is the repeatable thing for search
@@ -32,7 +34,8 @@ if __name__ == '__main__':
 
     newsapi = NewsApiClient(api_key='ab1223db856247deaabeb8a682ad6a1a')
 
-    all_articles = newsapi.get_everything(q='', sources='bbc-news,the-verge,abc-news,associated-press,bloomberg,google-news,cnn,the-new-york-times,the-hill,washington-post,npr,pbs', language='en', sort_by='publishedAt', page_size=100)
+    all_articles = newsapi.get_everything(q='', sources='bbc-news,the-verge,abc-news,associated-press,bloomberg,google-news,cnn,the-new-york-times,the-hill,washington-post,npr,pbs', from_param='2019-03-20',
+                                      to='2019-04-06', language='en', sort_by='publishedAt', page_size=100)
     for article in all_articles['articles']:
         res = es.index(index="articles", doc_type='news', body={'picture': article['urlToImage'], 'link': article['url'], 'title': article['title'], 'text': article['content']})
     es.indices.refresh(index="articles")
