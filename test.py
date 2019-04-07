@@ -4,7 +4,7 @@ from Crypto.Hash import SHA256
 from Crypto.PublicKey import RSA
 import requests
 
-K = 2
+K = 4
 BLOCK_LEN = 2
 USER = "stephen"
 
@@ -146,7 +146,7 @@ def get_data(): return json.loads(requests.get(f'{url}/get').text)
 
 url = "http://127.0.0.1:5000"
 
-def main():
+def test():
 
     while True:
         try:
@@ -183,73 +183,94 @@ def main():
             cmds = {"get": get_data, "tally": lambda: chain.tally(), "clear": lambda: requests.get(f'{url}/clear')}
             print(cmds[cmd]())
 
+def setup_server():
+    r = requests.get(f'{url}/vote', params={'vote_str':str(Vote("stephen", "trump"))})
+    r = requests.get(f'{url}/vote', params={'vote_str':str(Vote("udbhav", "trump"))})
+    r = requests.get(f'{url}/vote', params={'vote_str':str(Vote("luke", "clinton"))})
+    r = requests.get(f'{url}/vote', params={'vote_str':str(Vote("andy", "clinton"))})
+    r = requests.get(f'{url}/vote', params={'vote_str':str(Vote("justin", "trump"))})
 
-#r = requests.get(f'{url}/vote', params={'vote_str':str(Vote("stephen", "trump"))})
+    vote = Vote("luke", "clinton")
+    vote.sig = (1273812738123,)
+    r = requests.get(f'{url}/vote', params={'vote_str':str(vote)})
 
-# chain = Chain(Block())
-# b1 = Block(chain.curr, [Vote("stephen", "trump"), Vote("udbhav", "lenin")])
-# b1.mine()
-# chain.add_block(b1)
-#
-# r = requests.get(f'{url}/vote', params={'chain': chain})
+    chain = Chain(Block())
+    b1 = Block(chain.curr, [Vote("stephen", "trump"), Vote("udbhav", "lenin")])
+    b1.mine()
+    print(hash(b1))
+    chain.add_block(b1)
 
-main()
+    r = requests.get(f'{url}/vote', params={'chain': chain})
 
-# b2 = Block(str(b1), [Vote("luke", "clinton")])
-# b2.mine()
-# chain.add_block(b2)
-#
-# #print(chain)
-#
-# # b4 = Block("hi test", [Vote("andy", "stalin")])
-# # b4.mine()
-# # chain.add_block(b4)
-#
-# b3 = Block(str(b2), [Vote("andy", "stalin")])
-# b3.mine()
-#
-# chain2 = Chain(b3)
-# b4 = Block(str(b3), [Vote("justin", "Caesar")])
-# b4.mine()
-# chain2.add_block(b4)
-#
-# chain.add_chain(chain2)
-#
-# print(chain)
+if __name__ == "__main__":
+    setup_server()
 
-# b1 = Block()
-# b2 = Block(b1, [Vote("stephen", "trump"), Vote("udbhav", "lenin"), Vote("stephen", "hi")], 2932)
-#
-# print(b1)
-# print(b2)
-#
-# try:
-#     verify_block(b2)
-# except InvalidBlockError:
-#     print("can't use wrong PoW!")
-#     b2.mine()
-#
-# print(hash(b2))
-# verify_block(b2)
-#
-# vote = Vote("luke", "clinton")
-# vote.sig = (1273812738123,)
-#
-# b3 = Block(b2, [vote])
-# b3.mine()
-# print(b3)
-# verify_block(b3)
+    #r = requests.get(f'{url}/vote', params={'vote_str':str(Vote("stephen", "trump"))})
 
-# msg = "testing hi"
-# sk = load_key("stephen")
-# pk = sk.publickey()
-#
-# sig = sign(msg, sk)
-#
-# #print(sig)
-# print(verify(msg, sig, pk))
-# print(verify(msg, (2304234343,), pk))
-# print(verify(msg, sig, sk))
-# print(verify(msg, (2304234343,), sk))
+    # chain = Chain(Block())
+    # b1 = Block(chain.curr, [Vote("stephen", "trump"), Vote("udbhav", "lenin")])
+    # b1.mine()
+    # chain.add_block(b1)
+    #
+    # r = requests.get(f'{url}/vote', params={'chain': chain})
 
-#print(SHA256.new(b"Nobody inspects the spammish repetition").hexdigest())
+    #test()
+
+    # b2 = Block(str(b1), [Vote("luke", "clinton")])
+    # b2.mine()
+    # chain.add_block(b2)
+    #
+    # #print(chain)
+    #
+    # # b4 = Block("hi test", [Vote("andy", "stalin")])
+    # # b4.mine()
+    # # chain.add_block(b4)
+    #
+    # b3 = Block(str(b2), [Vote("andy", "stalin")])
+    # b3.mine()
+    #
+    # chain2 = Chain(b3)
+    # b4 = Block(str(b3), [Vote("justin", "Caesar")])
+    # b4.mine()
+    # chain2.add_block(b4)
+    #
+    # chain.add_chain(chain2)
+    #
+    # print(chain)
+
+    # b1 = Block()
+    # b2 = Block(b1, [Vote("stephen", "trump"), Vote("udbhav", "lenin"), Vote("stephen", "hi")], 2932)
+    #
+    # print(b1)
+    # print(b2)
+    #
+    # try:
+    #     verify_block(b2)
+    # except InvalidBlockError:
+    #     print("can't use wrong PoW!")
+    #     b2.mine()
+    #
+    # print(hash(b2))
+    # verify_block(b2)
+    #
+    # vote = Vote("luke", "clinton")
+    # vote.sig = (1273812738123,)
+    #
+    # b3 = Block(b2, [vote])
+    # b3.mine()
+    # print(b3)
+    # verify_block(b3)
+
+    # msg = "testing hi"
+    # sk = load_key("stephen")
+    # pk = sk.publickey()
+    #
+    # sig = sign(msg, sk)
+    #
+    # #print(sig)
+    # print(verify(msg, sig, pk))
+    # print(verify(msg, (2304234343,), pk))
+    # print(verify(msg, sig, sk))
+    # print(verify(msg, (2304234343,), sk))
+
+    #print(SHA256.new(b"Nobody inspects the spammish repetition").hexdigest())

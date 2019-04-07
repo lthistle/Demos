@@ -10,6 +10,13 @@ import time
 import datetime
 app = Flask(__name__)
 
+def start_server(): subprocess.call(["elasticsearch-6.7.1/bin/elasticsearch"])
+
+t = threading.Thread(target=start_server)
+t.start()
+
+time.sleep(15)
+
 #this is the repeatable thing for search
 @app.route('/query')
 def query():
@@ -21,16 +28,12 @@ def query():
             print(hit['_source'])
             x[hit['_source']['title']] = hit['_source']['link']
     return json.dumps(x)
+
 @app.route('/')
 def index():
     return render_template('index.html')
+
 if __name__ == '__main__':
-    def start_server(): subprocess.call(["elasticsearch-6.7.1/bin/elasticsearch"])
-
-    t = threading.Thread(target=start_server)
-    t.start()
-
-    time.sleep(15)
 
     es = Elasticsearch()
 

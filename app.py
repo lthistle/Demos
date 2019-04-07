@@ -1,4 +1,5 @@
 from flask import request, Flask
+from test import *
 import json
 
 app = Flask(__name__)
@@ -32,6 +33,7 @@ def vote():
 
 @app.route('/get')
 def get():
+    global data
     data = load_json()
     return dump_json(data)
 
@@ -41,3 +43,52 @@ def clear():
     data = {"votes": [], "chains": [], "blocks": []}
     dump_json(data)
     return "wiped"
+
+@app.route('/set_chain/<int:id>')
+def set_chain(id):
+    global chain, block
+    chain = str_chain(data["chains"][id])
+    block = Block(chain.curr)
+    return "done"
+
+@app.route('/get_chain')
+def get_chain():
+    return str(chain)
+
+@app.route('/push_chain')
+def push_chain():
+    data["chains"].append(str(chain))
+    return dump_json(data)
+
+@app.route('/add_block/<int:id>')
+def add_block(id):
+    chain.add_block(str_block(data["blocks"][id]))
+    return "done"
+
+@app.route('/add_vote/<int:id>')
+def add_vote(id):
+    block.ledger.append(str_vote(data["votes"][id]))
+    return "done"
+
+@app.route('/push_block')
+def push_block():
+    data["blocks"].append(str(block))
+    return dump_json(data)
+
+@app.route('/mine')
+def mine():
+    block.mine()
+    return "done"
+
+@app.route('/block')
+def block():
+    return str(block)
+
+@app.route('/add_own_block')
+def add_own_block():
+    chain.add_block(block)
+    return "done"
+
+@app.route('/tally')
+def tally():
+    return json.dumps(chain.tally())
