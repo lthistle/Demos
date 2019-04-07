@@ -80,8 +80,8 @@ def mine():
     block.mine()
     return "done"
 
-@app.route('/block')
-def block():
+@app.route('/get_block')
+def get_block():
     return str(block)
 
 @app.route('/add_own_block')
