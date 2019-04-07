@@ -120,6 +120,7 @@ Caused by: java.lang.IllegalStateException: failed to obtain node locks, tried [
 [2019-04-07T01:07:15,991][INFO ][o.e.n.Node               ] [WOVOlyr] stopped
 [2019-04-07T01:07:15,991][INFO ][o.e.n.Node               ] [WOVOlyr] closing ...
 [2019-04-07T01:07:16,001][INFO ][o.e.n.Node               ] [WOVOlyr] closed
+<<<<<<< HEAD
 [2019-04-07T02:20:57,026][INFO ][o.e.e.NodeEnvironment    ] [kafw-27] using [1] data paths, mounts [[/ (/dev/disk1s1)]], net usable_space [249.1gb], net total_space [465.6gb], types [apfs]
 [2019-04-07T02:20:57,028][INFO ][o.e.e.NodeEnvironment    ] [kafw-27] heap size [989.8mb], compressed ordinary object pointers [true]
 [2019-04-07T02:20:57,317][INFO ][o.e.n.Node               ] [kafw-27] node name derived from node ID [kafw-27GSG27VIa_Vg8xIg]; set [node.name] to override
@@ -308,3 +309,61 @@ Caused by: java.lang.IllegalStateException: failed to obtain node locks, tried [
 [2019-04-07T02:33:17,683][INFO ][o.e.n.Node               ] [kafw-27] stopped
 [2019-04-07T02:33:17,683][INFO ][o.e.n.Node               ] [kafw-27] closing ...
 [2019-04-07T02:33:17,695][INFO ][o.e.n.Node               ] [kafw-27] closed
+=======
+[2019-04-07T01:34:20,685][INFO ][o.e.e.NodeEnvironment    ] [WOVOlyr] using [1] data paths, mounts [[/ (/dev/disk1s1)]], net usable_space [10.4gb], net total_space [233.4gb], types [apfs]
+[2019-04-07T01:34:20,689][INFO ][o.e.e.NodeEnvironment    ] [WOVOlyr] heap size [990.7mb], compressed ordinary object pointers [true]
+[2019-04-07T01:34:21,044][INFO ][o.e.n.Node               ] [WOVOlyr] node name derived from node ID [WOVOlyrVTY6FTZRAk7SjOg]; set [node.name] to override
+[2019-04-07T01:34:21,045][INFO ][o.e.n.Node               ] [WOVOlyr] version[6.7.1], pid[2322], build[default/tar/2f32220/2019-04-02T15:59:27.961366Z], OS[Mac OS X/10.14.3/x86_64], JVM[Oracle Corporation/Java HotSpot(TM) 64-Bit Server VM/1.8.0_144/25.144-b01]
+[2019-04-07T01:34:21,045][INFO ][o.e.n.Node               ] [WOVOlyr] JVM arguments [-Xms1g, -Xmx1g, -XX:+UseConcMarkSweepGC, -XX:CMSInitiatingOccupancyFraction=75, -XX:+UseCMSInitiatingOccupancyOnly, -Des.networkaddress.cache.ttl=60, -Des.networkaddress.cache.negative.ttl=10, -XX:+AlwaysPreTouch, -Xss1m, -Djava.awt.headless=true, -Dfile.encoding=UTF-8, -Djna.nosys=true, -XX:-OmitStackTraceInFastThrow, -Dio.netty.noUnsafe=true, -Dio.netty.noKeySetOptimization=true, -Dio.netty.recycler.maxCapacityPerThread=0, -Dlog4j.shutdownHookEnabled=false, -Dlog4j2.disable.jmx=true, -Djava.io.tmpdir=/var/folders/nt/tx3r0qmn4yn_5w9s788mrt500000gn/T/elasticsearch-8740925016877720660, -XX:+HeapDumpOnOutOfMemoryError, -XX:HeapDumpPath=data, -XX:ErrorFile=logs/hs_err_pid%p.log, -XX:+PrintGCDetails, -XX:+PrintGCDateStamps, -XX:+PrintTenuringDistribution, -XX:+PrintGCApplicationStoppedTime, -Xloggc:logs/gc.log, -XX:+UseGCLogFileRotation, -XX:NumberOfGCLogFiles=32, -XX:GCLogFileSize=64m, -Des.path.home=/Users/umuthakana/Documents/GitHub/Demos/elasticsearch-6.7.1, -Des.path.conf=/Users/umuthakana/Documents/GitHub/Demos/elasticsearch-6.7.1/config, -Des.distribution.flavor=default, -Des.distribution.type=tar]
+[2019-04-07T01:34:22,872][INFO ][o.e.p.PluginsService     ] [WOVOlyr] loaded module [aggs-matrix-stats]
+[2019-04-07T01:34:22,872][INFO ][o.e.p.PluginsService     ] [WOVOlyr] loaded module [analysis-common]
+[2019-04-07T01:34:22,872][INFO ][o.e.p.PluginsService     ] [WOVOlyr] loaded module [ingest-common]
+[2019-04-07T01:34:22,873][INFO ][o.e.p.PluginsService     ] [WOVOlyr] loaded module [ingest-geoip]
+[2019-04-07T01:34:22,873][INFO ][o.e.p.PluginsService     ] [WOVOlyr] loaded module [ingest-user-agent]
+[2019-04-07T01:34:22,873][INFO ][o.e.p.PluginsService     ] [WOVOlyr] loaded module [lang-expression]
+[2019-04-07T01:34:22,874][INFO ][o.e.p.PluginsService     ] [WOVOlyr] loaded module [lang-mustache]
+[2019-04-07T01:34:22,874][INFO ][o.e.p.PluginsService     ] [WOVOlyr] loaded module [lang-painless]
+[2019-04-07T01:34:22,874][INFO ][o.e.p.PluginsService     ] [WOVOlyr] loaded module [mapper-extras]
+[2019-04-07T01:34:22,874][INFO ][o.e.p.PluginsService     ] [WOVOlyr] loaded module [parent-join]
+[2019-04-07T01:34:22,874][INFO ][o.e.p.PluginsService     ] [WOVOlyr] loaded module [percolator]
+[2019-04-07T01:34:22,874][INFO ][o.e.p.PluginsService     ] [WOVOlyr] loaded module [rank-eval]
+[2019-04-07T01:34:22,875][INFO ][o.e.p.PluginsService     ] [WOVOlyr] loaded module [reindex]
+[2019-04-07T01:34:22,875][INFO ][o.e.p.PluginsService     ] [WOVOlyr] loaded module [repository-url]
+[2019-04-07T01:34:22,875][INFO ][o.e.p.PluginsService     ] [WOVOlyr] loaded module [transport-netty4]
+[2019-04-07T01:34:22,876][INFO ][o.e.p.PluginsService     ] [WOVOlyr] loaded module [tribe]
+[2019-04-07T01:34:22,876][INFO ][o.e.p.PluginsService     ] [WOVOlyr] loaded module [x-pack-ccr]
+[2019-04-07T01:34:22,876][INFO ][o.e.p.PluginsService     ] [WOVOlyr] loaded module [x-pack-core]
+[2019-04-07T01:34:22,876][INFO ][o.e.p.PluginsService     ] [WOVOlyr] loaded module [x-pack-deprecation]
+[2019-04-07T01:34:22,876][INFO ][o.e.p.PluginsService     ] [WOVOlyr] loaded module [x-pack-graph]
+[2019-04-07T01:34:22,876][INFO ][o.e.p.PluginsService     ] [WOVOlyr] loaded module [x-pack-ilm]
+[2019-04-07T01:34:22,876][INFO ][o.e.p.PluginsService     ] [WOVOlyr] loaded module [x-pack-logstash]
+[2019-04-07T01:34:22,876][INFO ][o.e.p.PluginsService     ] [WOVOlyr] loaded module [x-pack-ml]
+[2019-04-07T01:34:22,877][INFO ][o.e.p.PluginsService     ] [WOVOlyr] loaded module [x-pack-monitoring]
+[2019-04-07T01:34:22,877][INFO ][o.e.p.PluginsService     ] [WOVOlyr] loaded module [x-pack-rollup]
+[2019-04-07T01:34:22,877][INFO ][o.e.p.PluginsService     ] [WOVOlyr] loaded module [x-pack-security]
+[2019-04-07T01:34:22,877][INFO ][o.e.p.PluginsService     ] [WOVOlyr] loaded module [x-pack-sql]
+[2019-04-07T01:34:22,877][INFO ][o.e.p.PluginsService     ] [WOVOlyr] loaded module [x-pack-upgrade]
+[2019-04-07T01:34:22,877][INFO ][o.e.p.PluginsService     ] [WOVOlyr] loaded module [x-pack-watcher]
+[2019-04-07T01:34:22,878][INFO ][o.e.p.PluginsService     ] [WOVOlyr] no plugins loaded
+[2019-04-07T01:34:25,963][INFO ][o.e.x.s.a.s.FileRolesStore] [WOVOlyr] parsed [0] roles from file [/Users/umuthakana/Documents/GitHub/Demos/elasticsearch-6.7.1/config/roles.yml]
+[2019-04-07T01:34:26,521][INFO ][o.e.x.m.p.l.CppLogMessageHandler] [WOVOlyr] [controller/2342] [Main.cc@109] controller (64 bit): Version 6.7.1 (Build e1f492de67a719) Copyright (c) 2019 Elasticsearch BV
+[2019-04-07T01:34:26,990][DEBUG][o.e.a.ActionModule       ] [WOVOlyr] Using REST wrapper from plugin org.elasticsearch.xpack.security.Security
+[2019-04-07T01:34:27,325][INFO ][o.e.d.DiscoveryModule    ] [WOVOlyr] using discovery type [zen] and host providers [settings]
+[2019-04-07T01:34:28,067][INFO ][o.e.n.Node               ] [WOVOlyr] initialized
+[2019-04-07T01:34:28,068][INFO ][o.e.n.Node               ] [WOVOlyr] starting ...
+[2019-04-07T01:34:28,252][INFO ][o.e.t.TransportService   ] [WOVOlyr] publish_address {127.0.0.1:9300}, bound_addresses {[::1]:9300}, {127.0.0.1:9300}
+[2019-04-07T01:34:31,379][INFO ][o.e.c.s.MasterService    ] [WOVOlyr] zen-disco-elected-as-master ([0] nodes joined), reason: new_master {WOVOlyr}{WOVOlyrVTY6FTZRAk7SjOg}{spo0PUwvTpWLCYZVfZhLYw}{127.0.0.1}{127.0.0.1:9300}{ml.machine_memory=17179869184, xpack.installed=true, ml.max_open_jobs=20, ml.enabled=true}
+[2019-04-07T01:34:31,383][INFO ][o.e.c.s.ClusterApplierService] [WOVOlyr] new_master {WOVOlyr}{WOVOlyrVTY6FTZRAk7SjOg}{spo0PUwvTpWLCYZVfZhLYw}{127.0.0.1}{127.0.0.1:9300}{ml.machine_memory=17179869184, xpack.installed=true, ml.max_open_jobs=20, ml.enabled=true}, reason: apply cluster state (from master [master {WOVOlyr}{WOVOlyrVTY6FTZRAk7SjOg}{spo0PUwvTpWLCYZVfZhLYw}{127.0.0.1}{127.0.0.1:9300}{ml.machine_memory=17179869184, xpack.installed=true, ml.max_open_jobs=20, ml.enabled=true} committed version [1] source [zen-disco-elected-as-master ([0] nodes joined)]])
+[2019-04-07T01:34:31,429][INFO ][o.e.h.n.Netty4HttpServerTransport] [WOVOlyr] publish_address {127.0.0.1:9200}, bound_addresses {[::1]:9200}, {127.0.0.1:9200}
+[2019-04-07T01:34:31,429][INFO ][o.e.n.Node               ] [WOVOlyr] started
+[2019-04-07T01:34:32,082][WARN ][o.e.x.s.a.s.m.NativeRoleMappingStore] [WOVOlyr] Failed to clear cache for realms [[]]
+[2019-04-07T01:34:32,134][INFO ][o.e.l.LicenseService     ] [WOVOlyr] license [bea5e34d-60de-41d0-b464-bad0249f534b] mode [basic] - valid
+[2019-04-07T01:34:32,143][INFO ][o.e.g.GatewayService     ] [WOVOlyr] recovered [27] indices into cluster_state
+[2019-04-07T01:34:36,386][INFO ][o.e.c.r.a.AllocationService] [WOVOlyr] Cluster health status changed from [RED] to [YELLOW] (reason: [shards started [[test-index][1]] ...]).
+[2019-04-07T01:40:39,392][INFO ][o.e.x.m.p.NativeController] [WOVOlyr] Native controller process has stopped - no new native processes can be started
+[2019-04-07T01:40:39,393][INFO ][o.e.n.Node               ] [WOVOlyr] stopping ...
+[2019-04-07T01:40:39,406][INFO ][o.e.x.w.WatcherService   ] [WOVOlyr] stopping watch service, reason [shutdown initiated]
+[2019-04-07T01:40:39,765][INFO ][o.e.n.Node               ] [WOVOlyr] stopped
+[2019-04-07T01:40:39,765][INFO ][o.e.n.Node               ] [WOVOlyr] closing ...
+[2019-04-07T01:40:39,778][INFO ][o.e.n.Node               ] [WOVOlyr] closed
+>>>>>>> bd12d9d26dc92050e38e44dd181e85fc74199a97
