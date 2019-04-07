@@ -3,6 +3,9 @@ import Router from 'vue-router'
 import HomePage from '@/components/HomePage'
 import TheNavBar from '@/components/TheNavBar'
 import TheP2APage from '@/components/TheP2APage'
+import TheNewsPage from '@/components/TheNewsPage'
+import TheVotePage from '@/components/TheVotePage'
+import TheTestPage from '@/components/TheTestPage'
 Vue.use(Router)
 
 const router = new Router({
@@ -19,13 +22,18 @@ const router = new Router({
     },
     {
       path: '/vote',
-      name: 'NavPage',
-      component: TheNavBar
+      name: 'Votepage',
+      component: TheVotePage
     },
     {
       path: '/news',
-      name: 'NavPage',
-      component: TheNavBar
+      name: 'News',
+      component: TheNewsPage
+    },
+    {
+      path: '/test',
+      name: 'Test',
+      component: TheTestPage
     }
   ]
 })

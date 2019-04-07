@@ -1,7 +1,7 @@
 <template>
   <div>
   <b-navbar toggleable="lg" type="dark" variant="primary">
-    <b-navbar-brand href="#">Demos</b-navbar-brand>
+    <b-navbar-brand href="#">Dēmos</b-navbar-brand>
     <b-collapse id="nav-collapse" is-nav>
       <b-navbar-nav class="ml-auto">
         <b-nav-item href="#/home" id='item-home'>Home</b-nav-item>
