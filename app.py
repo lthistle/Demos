@@ -31,6 +31,12 @@ def vote():
     dump_json(data)
     return "done"
 
+@app.route('/make_vote')
+def make_vote():
+    data["votes"].append(str(Vote(request.args.get('username'), request.args.get('vote_for'))))
+    dump_json(data)
+    return "done"
+
 @app.route('/get')
 def get():
     global data
