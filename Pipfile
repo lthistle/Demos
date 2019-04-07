@@ -15,6 +15,7 @@ gunicorn = "*"
 flask = "*"
 elasticsearch = "*"
 newspaper3k = "*"
+newsapi-python = "*"
 
 [requires]
 python_version = "3.7"

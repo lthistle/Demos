@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "06ccda04a517aac6226b0d48c63aba181ac60aada2721ededae23a47fc105f24"
+            "sha256": "f959997b520e9b9b195bee8b0498e441789c45628693b11a198664e4aff1183d"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -177,10 +177,10 @@
         },
         "idna": {
             "hashes": [
-                "sha256:c357b3f628cf53ae2c4c05627ecc484553142ca23264e593d327bcde5e9c3407",
-                "sha256:ea8b7f6188e6fa117537c3df7da9fc686d485087abf6ac197f9c46432f7e4a3c"
+                "sha256:3cb5ce08046c4e3a560fc02f138d0ac63e00f8ce5901a56b32ec8b7994082aab",
+                "sha256:cc19709fd6d0cbfed39ea875d29ba6d4e22c0cebc510a76d6302a28385e8bb70"
             ],
-            "version": "==2.8"
+            "version": "==2.5"
         },
         "itsdangerous": {
             "hashes": [
@@ -266,6 +266,13 @@
             ],
             "version": "==1.1.1"
         },
+        "newsapi-python": {
+            "hashes": [
+                "sha256:6c4a53472d1aa36355f3a08c328474de6c356d66492653ca0de05b5792194721"
+            ],
+            "index": "pypi",
+            "version": "==0.2.3"
+        },
         "newspaper3k": {
             "hashes": [
                 "sha256:44a864222633d3081113d1030615991c3dbba87239f6bbf59d91240f71a22e3e",
@@ -282,9 +289,9 @@
         },
         "parse": {
             "hashes": [
-                "sha256:870dd675c1ee8951db3e29b81ebe44fd131e3eb8c03a79483a58ea574f3145c2"
+                "sha256:1b68657434d371e5156048ca4a0c5aea5afc6ca59a2fea4dd1a575354f617142"
             ],
-            "version": "==1.11.1"
+            "version": "==1.12.0"
         },
         "pillow": {
             "hashes": [
@@ -375,11 +382,11 @@
         },
         "requests": {
             "hashes": [
-                "sha256:502a824f31acdacb3a35b6690b5fbf0bc41d63a24a45c4004352b0242707598e",
-                "sha256:7bf2a778576d825600030a110f3c0e3e8edc51dfaafe1c146e39a2027784957b"
+                "sha256:02242978c6aaee47953da9e4d20d9d9929a1284a6b3a8a63a243ac1b842bd12c",
+                "sha256:9cf3698006012c000af2804fe4186042a4d55df0303552dd190a74f5eaafe69b"
             ],
             "index": "pypi",
-            "version": "==2.21.0"
+            "version": "==2.17.1"
         },
         "requests-file": {
             "hashes": [
@@ -439,10 +446,10 @@
         },
         "urllib3": {
             "hashes": [
-                "sha256:61bf29cada3fc2fbefad4fdf059ea4bd1b4a86d2b6d15e1c7c0b582b9752fe39",
-                "sha256:de9529817c93f27c8ccbfead6985011db27bd0ddfcdb2d86f3f663385c6a9c22"
+                "sha256:8ed6d5c1ff9d6ba84677310060d6a3a78ca3072ce0684cb3c645023009c114b1",
+                "sha256:b14486978518ca0901a76ba973d7821047409d7f726f22156b24e83fd71382a5"
             ],
-            "version": "==1.24.1"
+            "version": "==1.21.1"
         },
         "w3lib": {
             "hashes": [

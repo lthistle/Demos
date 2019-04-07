@@ -23,14 +23,28 @@ def hash(s): return SHA256.new(str_byte(str(s))).hexdigest()
 
 def verify_work(block, k=K): return hash(block)[:k] == "0"*k
 
+def verify_block(block, chain=None):
+
+    if chain is not None and block.prev_hash != hash(chain.curr if block.prev is None else block.prev):
+        raise InvalidBlockError(f"Hash does not match previous hash")
+
+    if not verify_work(block):
+        raise InvalidBlockError(f"Invalid proof of work: expected prefix to be four zeros, got '{hash(block)[:K]}'")
+
+    for vote in block.ledger:
+        if not verify(vote.prefix, vote.sig, load_key(vote.person)):
+            raise InvalidBlockError(f"Falsified signature for {vote.person} voting for {vote.vote}")
+
+        if chain is not None:
+            if vote.person in chain.seen:
+                raise InvalidBlockError("Chain cannot contain the same vote twice!")
+            chain.seen.add(vote.person)
+
+    if len(set(vote.person for vote in block.ledger)) != len(block.ledger):
+        raise InvalidBlockError("Block cannot contain the same vote twice!")
+
 class InvalidBlockError(Exception):
     """ Raised when a block is invalid """
-
-    # def __init__(self, expression, message):
-    #     self.expression = expression
-    #     self.message = message
-    #
-    # def  __str__(self): return f"{self.expression}{self.message}"
 
 class Vote:
 
@@ -46,7 +60,7 @@ class Vote:
 class Block:
 
     def __init__(self, prev=None, votes=[], proof=None):
-        self.prev = prev
+        self.prev = None
         self.prev_hash = hash(prev) if prev is not None else "None"
         self.ledger = votes
         self.proof = proof
@@ -61,20 +75,11 @@ class Block:
         while not verify_work(self):
             self.proof += 1
 
-    def send(self):
-        if not verify_work(self):
-            raise InvalidBlockError(f"Invalid proof of work: expected prefix to be four zeros, got '{hash(self)[:K]}'")
-
-        for vote in self.ledger:
-            if not verify(vote.prefix, vote.sig, load_key(vote.person)):
-                raise InvalidBlockError(f"Falsified signature for {vote.person} voting for {vote.vote}")
-
-        # TODO: propagate block to server
-
 class Chain:
 
-    def __init__(self, curr=None):
+    def __init__(self, curr=Block()):
         self.curr = curr
+        self.seen = set()
 
     def __str__(self): return "\n\n".join(map(str, self.get_chain(self)))
 
@@ -84,41 +89,61 @@ class Chain:
             l.appendleft(l[0].prev)
         return l
 
-    # def add_chain(self, chain):
-    #     self.get_chain(chain)[0].prev = self.curr
-    #     return chain
+    def add_chain(self, chain):
+        l = self.get_chain(chain)
+        list(map(lambda x: verify_block(x, self), l))
+        for vote in l[0].ledger:
+            self.seen.remove(vote.person)
+        self.add_block(l[0])
+        self.curr = chain.curr
 
-    def add_block(self, votes):
-        block = Block(self.curr, votes)
-        block.mine()
+    def add_block(self, block):
+        verify_block(block, self)
+        block.prev = self.curr
         self.curr = block
 
 
-b1 = Block()
-b2 = Block(b1, [Vote("stephen", "trump"), Vote("udbhav", "lenin")])
+chain = Chain(Block())
+b1 = Block(chain.curr, [Vote("stephen", "trump"), Vote("udbhav", "lenin")])
+b1.mine()
+chain.add_block(b1)
+
+b2 = Block(str(b1), [Vote("luke", "clinton")])
 b2.mine()
+chain.add_block(b2)
 
-# b3 = Block(b2, [Vote("luke", "clinton")])
-# b3.mine()
+#print(chain)
 
-chain = Chain(b2) 
-chain.add_block([Vote("luke", "clinton")])
+# b4 = Block("hi test", [Vote("andy", "stalin")])
+# b4.mine()
+# chain.add_block(b4)
+
+b3 = Block(str(b2), [Vote("andy", "stalin")])
+b3.mine()
+
+chain2 = Chain(b3)
+b4 = Block(str(b3), [Vote("justin", "Caesar")])
+b4.mine()
+chain2.add_block(b4)
+
+chain.add_chain(chain2)
+
 print(chain)
 
 # b1 = Block()
-# b2 = Block(b1, [Vote("stephen", "trump"), Vote("udbhav", "lenin")], 2932)
+# b2 = Block(b1, [Vote("stephen", "trump"), Vote("udbhav", "lenin"), Vote("stephen", "hi")], 2932)
 #
 # print(b1)
 # print(b2)
 #
 # try:
-#     b2.send()
+#     verify_block(b2)
 # except InvalidBlockError:
 #     print("can't use wrong PoW!")
 #     b2.mine()
 #
 # print(hash(b2))
-# b2.send()
+# verify_block(b2)
 #
 # vote = Vote("luke", "clinton")
 # vote.sig = (1273812738123,)
@@ -126,7 +151,7 @@ print(chain)
 # b3 = Block(b2, [vote])
 # b3.mine()
 # print(b3)
-# b3.send()
+# verify_block(b3)
 
 # msg = "testing hi"
 # sk = load_key("stephen")
