@@ -3,7 +3,7 @@ import threading
 import time
 from elasticsearch import Elasticsearch
 import newspaper
-from flask import request, Flask
+from flask import request, Flask, render_template
 import json
 from newsapi import NewsApiClient
 import time
