@@ -13,6 +13,8 @@ requests = "*"
 requests-html = "*"
 gunicorn = "*"
 flask = "*"
+elasticsearch = "*"
+newspaper3k = "*"
 
 [requires]
 python_version = "3.7"
