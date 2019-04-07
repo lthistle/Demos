@@ -1,9 +1,12 @@
-import time
+import time, json, sys
 from collections import deque
 from Crypto.Hash import SHA256
 from Crypto.PublicKey import RSA
+import requests
 
 K = 2
+BLOCK_LEN = 2
+USER = "stephen"
 
 def make_key(fname):
     with open(f'{fname}.pem', 'wb') as f:
@@ -25,6 +28,9 @@ def verify_work(block, k=K): return hash(block)[:k] == "0"*k
 
 def verify_block(block, chain=None):
 
+    if len(block.ledger) != BLOCK_LEN:
+        raise InvalidBlockError("Ledger not the proper size")
+
     if chain is not None and block.prev_hash != hash(chain.curr if block.prev is None else block.prev):
         raise InvalidBlockError(f"Hash does not match previous hash")
 
@@ -42,6 +48,27 @@ def verify_block(block, chain=None):
 
     if len(set(vote.person for vote in block.ledger)) != len(block.ledger):
         raise InvalidBlockError("Block cannot contain the same vote twice!")
+
+def str_vote(s):
+    time, person, _, _, vote, _, sig = s.split()
+    v = Vote(USER, "temp")
+    v.time, v.person, v.vote, v.sig = float(time), person, vote, (int(sig),)
+    v.prefix = f"{time} {person} voted for {vote}"
+    return v
+
+def str_block(s):
+    l = list(filter(lambda x: len(x) > 0, (line for line in s.split("\n"))))
+    hash = l[0].split(": ")[-1]
+    b = Block(None, list(map(str_vote, l[1:-2])), l[-2].split(": ")[-1])
+    b.prev_hash = hash if hash != "None" else None
+    return b
+
+def str_chain(s):
+    blocks = [str_block(block) for block in s.split("-----BEGIN BLOCK-----") if block != ""]
+    chain = Chain(blocks[0])
+    for i in range(1, len(blocks)):
+        chain.add_block(blocks[i])
+    return chain
 
 class InvalidBlockError(Exception):
     """ Raised when a block is invalid """
@@ -75,6 +102,12 @@ class Block:
         while not verify_work(self):
             self.proof += 1
 
+    def tally(self):
+        counts = {}
+        for vote in ledger:
+            counts[vote.vote] = counts.get(vote.vote, 0) + 1
+        return counts
+
 class Chain:
 
     def __init__(self, curr=Block()):
@@ -102,33 +135,87 @@ class Chain:
         block.prev = self.curr
         self.curr = block
 
+    def tally(self):
+        counts = {}
+        for block in self.get_chain(self):
+            for vote in block.ledger:
+                counts[vote.vote] = counts.get(vote.vote, 0) + 1
+        return counts
 
-chain = Chain(Block())
-b1 = Block(chain.curr, [Vote("stephen", "trump"), Vote("udbhav", "lenin")])
-b1.mine()
-chain.add_block(b1)
+def get_data(): return json.loads(requests.get(f'{url}/get').text)
 
-b2 = Block(str(b1), [Vote("luke", "clinton")])
-b2.mine()
-chain.add_block(b2)
+url = "http://127.0.0.1:5000"
 
-#print(chain)
+def main():
 
-# b4 = Block("hi test", [Vote("andy", "stalin")])
+    while True:
+        try:
+            prompt = input(">>> ")
+        except KeyboardInterrupt:
+            print("Exiting...")
+            sys.exit()
+
+        prompt = prompt.split()
+        cmd = prompt[0]
+
+        if cmd == "get_chain":
+            chain = str_chain(get_data()["chains"][int(prompt[1])])
+            block = Block(chain.curr)
+        elif cmd == "chain":
+            print(chain)
+        elif cmd == "push_chain":
+            r = requests.get(f'{url}/vote', params={'chain':str(chain)})
+        elif cmd == "add_block":
+            chain.add_block(str_block(get_data()["blocks"][int(prompt[1])]))
+        elif cmd == "add_vote":
+            block.ledger.append(str_vote(get_data()["votes"][int(prompt[1])]))
+        elif cmd == "vote":
+            r = requests.get(f'{url}/vote', params={'vote_str':str(Vote(USER, prompt[1]))})
+        elif cmd == "block":
+            print(block)
+        elif cmd == "push_block":
+            r = requests.get(f'{url}/vote', params={'block':str(block)})
+        elif cmd == "add_own_block":
+            chain.add_block(block)
+        elif cmd == "mine":
+            block.mine()
+        else:
+            cmds = {"get": get_data, "tally": lambda: chain.tally(), "clear": lambda: requests.get(f'{url}/clear')}
+            print(cmds[cmd]())
+
+
+#r = requests.get(f'{url}/vote', params={'vote_str':str(Vote("stephen", "trump"))})
+
+# chain = Chain(Block())
+# b1 = Block(chain.curr, [Vote("stephen", "trump"), Vote("udbhav", "lenin")])
+# b1.mine()
+# chain.add_block(b1)
+#
+# r = requests.get(f'{url}/vote', params={'chain': chain})
+
+main()
+
+# b2 = Block(str(b1), [Vote("luke", "clinton")])
+# b2.mine()
+# chain.add_block(b2)
+#
+# #print(chain)
+#
+# # b4 = Block("hi test", [Vote("andy", "stalin")])
+# # b4.mine()
+# # chain.add_block(b4)
+#
+# b3 = Block(str(b2), [Vote("andy", "stalin")])
+# b3.mine()
+#
+# chain2 = Chain(b3)
+# b4 = Block(str(b3), [Vote("justin", "Caesar")])
 # b4.mine()
-# chain.add_block(b4)
-
-b3 = Block(str(b2), [Vote("andy", "stalin")])
-b3.mine()
-
-chain2 = Chain(b3)
-b4 = Block(str(b3), [Vote("justin", "Caesar")])
-b4.mine()
-chain2.add_block(b4)
-
-chain.add_chain(chain2)
-
-print(chain)
+# chain2.add_block(b4)
+#
+# chain.add_chain(chain2)
+#
+# print(chain)
 
 # b1 = Block()
 # b2 = Block(b1, [Vote("stephen", "trump"), Vote("udbhav", "lenin"), Vote("stephen", "hi")], 2932)
