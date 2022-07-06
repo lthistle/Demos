@@ -9,7 +9,7 @@ cryptography==2.6.1
 cssselect==1.0.3
 fake-useragent==0.1.11
 idna==2.8
-lxml==4.3.3
+lxml==4.9.1
 parse==1.11.1
 pycparser==2.19
 pycrypto==2.6.1
